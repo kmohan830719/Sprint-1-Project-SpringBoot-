@@ -18,15 +18,4 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<AppResponse>(response, HttpStatus.NOT_FOUND);
 	}
 
-//	@ExceptionHandler(ConstraintViolationException.class)
-//	public ResponseEntity<Map<String, String>> methodArgsNotValidException(ConstraintViolationException ex) {
-//		Map<String, String> resp = new HashMap<>();
-//
-//		String fieldName = ex.
-//		String message = ex.getMessage();
-//		resp.put(fieldName, message);
-//
-//		return new ResponseEntity<Map<String, String>>(resp, HttpStatus.BAD_REQUEST);
-//	}
-
 }
