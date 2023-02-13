@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.healthcare.app.entities.User;
 import com.healthcare.app.services.UserService;
+import com.healthcare.app.util.AppResponse;
 
 import jakarta.validation.Valid;
 
@@ -55,8 +56,8 @@ public class UserController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteUser(@PathVariable int id) {
+	public ResponseEntity<AppResponse> deleteUser(@PathVariable int id) {
 		this.usrSer.deleteUser(id);
-		return ResponseEntity.status(HttpStatus.OK).build();
+		return new ResponseEntity<AppResponse>(new AppResponse("User is deleted succesfully", true), HttpStatus.OK);
 	}
 }
