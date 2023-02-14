@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,7 @@ public class Departments {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int dep_id;
 
+	@NotEmpty
 	private String dep_name;
 
 	@OneToMany

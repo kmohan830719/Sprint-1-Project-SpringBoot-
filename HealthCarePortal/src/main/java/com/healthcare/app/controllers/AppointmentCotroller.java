@@ -18,6 +18,8 @@ import com.healthcare.app.entities.Appointment;
 import com.healthcare.app.services.AppointmentService;
 import com.healthcare.app.util.AppResponse;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/appointment")
 public class AppointmentCotroller {
@@ -27,7 +29,7 @@ public class AppointmentCotroller {
 
 	// post appointment
 	@PostMapping("/user/{userId}/department/{depId}")
-	public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment apt, @PathVariable int userId,
+	public ResponseEntity<Appointment> createAppointment(@Valid @RequestBody Appointment apt, @PathVariable int userId,
 			@PathVariable int depId) {
 		Appointment at = this.aptSer.createAppointment(apt, userId, depId);
 		return new ResponseEntity<Appointment>(at, HttpStatus.CREATED);
@@ -35,7 +37,7 @@ public class AppointmentCotroller {
 
 	// update appointment
 	@PutMapping("/{id}")
-	public ResponseEntity<Appointment> updateAppointment(@RequestBody Appointment apt, @PathVariable int id) {
+	public ResponseEntity<Appointment> updateAppointment(@Valid @RequestBody Appointment apt, @PathVariable int id) {
 		Appointment ap = this.aptSer.updateAppointment(apt, id);
 		return new ResponseEntity<Appointment>(ap, HttpStatus.OK);
 	}

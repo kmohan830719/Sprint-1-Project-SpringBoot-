@@ -9,6 +9,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,13 +29,19 @@ public class User {
 	private int id;
 	@Column(name = "user_name", nullable = false, length = 100)
 
+	@NotEmpty
 	private String name;
 
+	@Email
 	private String email;
 
+	@NotEmpty
 	private String gender;
 
+	@NotNull
 	@Column(length = 3)
+	@Min(value = 8)
+	@Max(value = 130)
 	private int age;
 
 	@OneToMany
