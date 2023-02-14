@@ -45,6 +45,7 @@ public class Appointment {
 
 	@NotNull
 	@Min(value = 1000)
+	@Column(unique = true)
 	private int contact_no;
 
 	@NotEmpty
